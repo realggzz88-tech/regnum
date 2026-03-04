@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>500 - Грешка на серверот | Regnum Consulting</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #14181D;
+            color: #F2F2F2;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .error-container {
+            max-width: 500px;
+        }
+        .error-code {
+            font-family: 'Sora', sans-serif;
+            font-size: 8rem;
+            font-weight: 700;
+            color: #EF4444;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+        .error-title {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .error-message {
+            color: #9CA3AF;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        .error-btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: #C7E35F;
+            color: #0F1419;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .error-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(199, 227, 95, 0.3);
+        }
+        .error-retry {
+            display: inline-block;
+            margin-left: 1rem;
+            padding: 14px 32px;
+            background-color: transparent;
+            color: #F2F2F2;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid #374151;
+            border-radius: 8px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+        .error-retry:hover {
+            border-color: #C7E35F;
+        }
+        .logo {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            font-family: 'Sora', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #F2F2F2;
+            text-decoration: none;
+        }
+        .error-info {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: #6B7280;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="logo">REGNUM</a>
+    <div class="error-container">
+        <div class="error-code">500</div>
+        <h1 class="error-title">Грешка на серверот</h1>
+        <p class="error-message">
+            Се случи неочекувана грешка при обработка на барањето.
+            Обидете се повторно или контактирајте нè ако проблемот продолжува.
+        </p>
+        <div>
+            <a href="index.html" class="error-btn">Врати се на почеток</a>
+            <button class="error-retry" onclick="location.reload()">Обиди се повторно</button>
+        </div>
+        <div class="error-info">
+            Ако проблемот продолжува, контактирајте нè на 
+            <a href="mailto:hello@regnumconsulting.com" style="color: #C7E35F;">hello@regnumconsulting.com</a>
+        </div>
+    </div>
+</body>
+</html>

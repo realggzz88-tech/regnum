@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ========== META TAGS ========== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="B2B SaaS CRM implementation case study - 47% increase in close rate through custom HubSpot architecture. Automated lead scoring, pipeline visibility, and real-time dashboards deployed by Regnum Consulting.">
+    <meta name="keywords" content="CRM implementation, HubSpot, system architecture, sales automation, IT consulting, B2B SaaS, pipeline management">
+    <meta name="author" content="Regnum Consulting">
+    <meta name="robots" content="index, follow">
+    
+    <!-- ========== TITLE ========== -->
+    <title>B2B SaaS CRM Architecture Deployment | Regnum Consulting</title>
+    
+    <!-- ========== CANONICAL ========== -->
+    <link rel="canonical" href="https://regnumconsulting.com/project-saas-crm.html">
+    
+    <!-- ========== FAVICON ========== -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    
+    <!-- ========== OPEN GRAPH TAGS ========== -->
+    <meta property="og:title" content="B2B SaaS CRM Architecture Deployment | Regnum Consulting">
+    <meta property="og:description" content="47% increase in close rate through custom HubSpot CRM architecture with automated lead scoring and real-time dashboards.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://regnumconsulting.com/project-saas-crm.html">
+    <meta property="og:image" content="https://regnumconsulting.com/assets/og-image.jpg">
+    
+    <!-- ========== TWITTER CARD TAGS ========== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="B2B SaaS CRM Architecture Deployment | Regnum Consulting">
+    <meta name="twitter:description" content="47% increase in close rate through custom HubSpot CRM architecture with automated lead scoring and real-time dashboards.">
+    <meta name="twitter:image" content="https://regnumconsulting.com/assets/og-image.jpg">
+    
+    <!-- ========== GOOGLE FONTS (PRECONNECT + OPTIMIZED) ========== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- ========== STYLESHEET ========== -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- ========== PROJECT-SPECIFIC STYLES ========== -->
+    <style>
+        /* Project header section */
+        .project-header {
+            background-color: #0B0F14;
+            padding: 8rem 0 4rem;
+        }
+        
+        .project-category {
+            font-size: 0.875rem;
+            color: #C7E35F;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .project-title {
+            font-family: 'Sora', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #F2F2F2;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+        }
+        
+        .project-divider {
+            width: 100px;
+            height: 3px;
+            background-color: #C7E35F;
+            margin-bottom: 0;
+        }
+        
+        /* Project content sections */
+        .project-section {
+            padding: 5rem 0;
+        }
+        
+        .project-section:nth-child(even) {
+            background-color: #11161D;
+        }
+        
+        .project-section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #F2F2F2;
+            margin-bottom: 2rem;
+        }
+        
+        .project-content {
+            max-width: 900px;
+        }
+        
+        .project-content p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #9BA3AF;
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-content h4 {
+            font-size: 1.125rem;
+            color: #C7E35F;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        /* Engineering stack section */
+        .stack-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .stack-category {
+            padding: 2rem;
+            background-color: #0B0F14;
+            border-left: 3px solid #C7E35F;
+        }
+        
+        .stack-category h4 {
+            font-size: 1rem;
+            color: #C7E35F;
+            margin: 0 0 1.5rem 0;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+        }
+        
+        .stack-category ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .stack-category li {
+            color: #9BA3AF;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .stack-category li:before {
+            content: "—";
+            color: #C7E35F;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Impact metrics */
+        .impact-metrics {
+            list-style: none;
+            margin: 2rem 0 0 0;
+            padding: 0;
+        }
+        
+        .impact-metrics li {
+            font-size: 1.125rem;
+            color: #9BA3AF;
+            line-height: 2;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .impact-metrics li:before {
+            content: "•";
+            color: #C7E35F;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            line-height: 1.5;
+        }
+        
+        .metric-highlight {
+            color: #C7E35F;
+            font-weight: 600;
+        }
+        
+        /* Project CTA section */
+        .project-cta {
+            background-color: #11161D;
+            padding: 6rem 0;
+            text-align: center;
+        }
+        
+        .project-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #F2F2F2;
+            margin-bottom: 2rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .stack-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .project-header {
+                padding: 6rem 0 3rem;
+            }
+            
+            .project-title {
+                font-size: 2.25rem;
+            }
+            
+            .project-section {
+                padding: 3rem 0;
+            }
+            
+            .project-section-title {
+                font-size: 1.75rem;
+            }
+            
+            .project-content p {
+                font-size: 1rem;
+            }
+            
+            .impact-metrics li {
+                font-size: 1rem;
+            }
+            
+            .project-cta {
+                padding: 4rem 0;
+            }
+            
+            .project-cta h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">REGNUM</a>
+            <ul class="nav-links">
+                <li class="nav-dropdown">
+                    <a href="index.html#model" class="nav-dropdown-toggle">Model <span class="nav-arrow">▾</span></a>
+                    <ul class="nav-dropdown-menu" aria-label="Model">
+                        <li><a href="analiza.html">ANALYZE</a></li>
+                        <li><a href="dizajn.html">DESIGN</a></li>
+                        <li><a href="izgradba.html">BUILD</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="index.html#uslugi" class="nav-dropdown-toggle">Services <span class="nav-arrow">▾</span></a>
+                    <ul class="nav-dropdown-menu" aria-label="Services">
+                        <li><a href="websites.html">WEBSITES</a></li>
+                        <li><a href="crm-systems.html">CRM SYSTEMS</a></li>
+                        <li><a href="automation.html">AUTOMATION</a></li>
+                        <li><a href="growth.html">MARKETING & PERFORMANCE</a></li>
+                        <li><a href="ai-integracija.html">AI INTEGRATION</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#kontakt" class="nav-cta">Book Consultation</a></li>
+            </ul>
+            <a href="index.html#vizija" class="nav-about-link">About</a>
+            <div class="language-switcher">
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn active" data-lang="mk">МК</button>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ========== PROJECT HEADER ========== -->
+    <section class="project-header">
+        <div class="container">
+            <div class="fade-in">
+                <div class="project-category">B2B SAAS PLATFORM</div>
+                <h1 class="project-title">CRM Architecture Deployment</h1>
+                <div class="project-divider"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 1: INFRASTRUCTURE CHALLENGE ========== -->
+    <section class="project-section">
+        <div class="container">
+            <div class="project-content fade-in">
+                <h2 class="project-section-title">Infrastructure Challenge</h2>
+                <p>A B2B SaaS company with a 12-person sales team operated without centralized CRM infrastructure. Deal tracking occurred across individual rep spreadsheets, email threads, and informal notes. No standardized pipeline stages existed. Follow-up protocols varied by rep preference. Revenue forecasting required manual aggregation from multiple sources.</p>
+                <p>The operational friction was quantifiable: approximately 8-10 hours per week spent on administrative tasks that should have been automated. Deal slippage occurred due to inconsistent follow-up. Sales leadership lacked real-time visibility into pipeline health. Onboarding new reps took 90+ days due to the absence of structured processes.</p>
+                <p>The company had reached $3M ARR but could not scale beyond current headcount without system infrastructure. The lack of operational clarity created a ceiling: hiring more reps meant more chaos, not more revenue.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 2: SYSTEM ARCHITECTURE DEPLOYED ========== -->
+    <section class="project-section">
+        <div class="container">
+            <div class="project-content fade-in">
+                <h2 class="project-section-title">System Architecture Deployed</h2>
+                
+                <h4>CRM Infrastructure</h4>
+                <p>Custom HubSpot CRM implementation configured to match the client's sales methodology. Five-stage pipeline architecture: Lead → Qualified → Demo Scheduled → Proposal Sent → Closed Won/Lost. Each stage included automated data validation to enforce quality standards. Deal records structured with mandatory fields to ensure complete information capture.</p>
+                
+                <h4>Automation Layer</h4>
+                <p>Automated lead scoring based on engagement metrics (email opens, website visits, demo attendance) and firmographic data (company size, industry, budget tier). Workflow automation for deal stage progression with trigger-based task assignments. Email sequences integrated with CRM activity tracking to monitor rep engagement quality.</p>
+                
+                <h4>Integration Architecture</h4>
+                <p>Bi-directional data synchronization between HubSpot CRM and the marketing automation platform (Marketo). Real-time lead handoff from marketing to sales with context preservation. Sales activity data flowing back to marketing for campaign optimization and lead source analysis.</p>
+                
+                <h4>Reporting & Dashboards</h4>
+                <p>Real-time revenue dashboards for sales leadership displaying: pipeline value by stage, deal velocity metrics, individual rep performance, forecast accuracy tracking, and lead source ROI. Custom reports automated and delivered weekly to eliminate manual data aggregation.</p>
+                
+                <h4>Training & Adoption</h4>
+                <p>Structured 2-week onboarding program for existing reps. Video documentation for all core workflows. Weekly office hours during the first 60 days to address adoption friction. Success metrics tracked: CRM login frequency, deal update consistency, and data quality scores.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 3: ENGINEERING STACK ========== -->
+    <section class="project-section">
+        <div class="container">
+            <h2 class="project-section-title fade-in">Engineering Stack</h2>
+            
+            <div class="stack-grid">
+                <div class="stack-category fade-in">
+                    <h4>CRM Platform</h4>
+                    <ul>
+                        <li>HubSpot Sales Hub Professional</li>
+                        <li>Custom deal pipelines</li>
+                        <li>Automated workflows</li>
+                        <li>Email sequences</li>
+                        <li>Lead scoring engine</li>
+                    </ul>
+                </div>
+                
+                <div class="stack-category fade-in">
+                    <h4>Integrations</h4>
+                    <ul>
+                        <li>Marketo (marketing automation)</li>
+                        <li>Zapier (middleware)</li>
+                        <li>Slack (notifications)</li>
+                        <li>DocuSign (e-signature)</li>
+                        <li>Calendar sync (Google/Outlook)</li>
+                    </ul>
+                </div>
+                
+                <div class="stack-category fade-in">
+                    <h4>Analytics & Reporting</h4>
+                    <ul>
+                        <li>HubSpot custom reports</li>
+                        <li>Databox dashboards</li>
+                        <li>Google Data Studio</li>
+                        <li>Automated email reports</li>
+                        <li>API data extraction</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION 4: OPERATIONAL IMPACT ========== -->
+    <section class="project-section">
+        <div class="container">
+            <div class="project-content fade-in">
+                <h2 class="project-section-title">Operational Impact</h2>
+                <p>Measured 90 days post-deployment:</p>
+                
+                <ul class="impact-metrics">
+                    <li><span class="metric-highlight">47% increase</span> in close rate (baseline 18% → deployed 26%)</li>
+                    <li><span class="metric-highlight">3 hours eliminated</span> per rep daily through automation (administrative tasks)</li>
+                    <li><span class="metric-highlight">100% pipeline visibility</span> across sales organization in real-time</li>
+                    <li><span class="metric-highlight">62% reduction</span> in sales cycle length (87 days → 33 days average)</li>
+                    <li><span class="metric-highlight">95% CRM adoption</span> rate within 30 days of deployment</li>
+                    <li><span class="metric-highlight">New rep onboarding</span> reduced from 90 days to 21 days</li>
+                </ul>
+                
+                <p style="margin-top: 2rem;">Revenue impact: The company scaled from $3M to $5.8M ARR within 12 months without increasing sales headcount. System infrastructure enabled existing team to operate at higher efficiency and velocity.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PROJECT CTA SECTION ========== -->
+    <section class="project-cta">
+        <div class="container">
+            <div class="fade-in">
+                <h2>Ready to Engineer Similar Infrastructure?</h2>
+                <a href="#" class="btn btn-primary consultBtn">Request Strategic Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Regnum Consulting. | <a href="index.html" style="color: #C7E35F; text-decoration: none;">Home</a> | <a href="index.html#case-studies" style="color: #C7E35F; text-decoration: none;">All Projects</a></p>
+        </div>
+    </footer>
+
+    <!-- ========== CONSULTATION MODAL ========== -->
+    <div id="consultModal" class="modal">
+        <div class="modal-content">
+            <span class="closeModal">&times;</span>
+            <h2>Request Strategic Consultation</h2>
+            <p>Connect directly with our engineering team to discuss your infrastructure requirements.</p>
+            
+            <div class="contact-options">
+                <a href="https://wa.me/38978319044" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                <a href="viber://chat?number=%2B38978319044" target="_blank" rel="noopener noreferrer">Viber</a>
+                <a href="https://t.me/38978319044" target="_blank" rel="noopener noreferrer">Telegram</a>
+                <a href="tel:+38978319044">Direct Call</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "regnum-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Regnum Consulting - CRM and Business Infrastructure Experts",
+  "author": "Regnum Consulting",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "dev": "NODE_ENV=development node server.js",
+    "start": "NODE_ENV=production node server.js",
+    "lint": "echo 'No linter configured'",
+    "security-check": "echo 'Run npm audit for security check'"
+  }
+}
