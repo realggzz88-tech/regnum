@@ -155,7 +155,8 @@ a {
     content: '';
     position: absolute;
     bottom: -15px;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 40px;
     height: 3px;
     background: linear-gradient(90deg, #C7E35F 0%, transparent 100%);
@@ -1362,12 +1363,22 @@ a {
         font-size: 2rem;
     }
 
+    .hero {
+        min-height: 70vh;
+        padding: 80px 0 70px 0;
+    }
+
+    .hero-logo {
+        width: 100%;
+        max-width: 450px;
+    }
+
     .hero-title {
-        font-size: 3.25rem;
+        font-size: 2.5rem;
     }
 
     .hero-subtitle {
-        font-size: 1.125rem;
+        font-size: 1.05rem;
     }
 
 
@@ -1537,32 +1548,57 @@ a {
     }
 
     .hero {
-        min-height: 72vh;
-        padding: 54px 0 78px 0;
+        min-height: auto;
+        padding: 100px 0 60px 0;
+    }
+
+    .hero-content {
+        padding: 0 10px;
     }
 
     .hero-logo-wrapper {
-        margin-bottom: 0.2rem;
+        margin-bottom: 1rem;
     }
 
     .hero-logo {
-        width: 90%;
-        max-width: 260px;
+        width: 85%;
+        max-width: 320px;
     }
 
     .hero-title {
-        font-size: 2.5rem;
-        margin-bottom: 0.7rem;
+        font-size: clamp(1.75rem, 6vw, 2.5rem);
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+        padding: 0 5px;
     }
 
     .hero-title::after {
-        bottom: -12px;
+        bottom: -10px;
         width: 30px;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .hero-subtitle {
-        font-size: 1rem;
+        font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+        margin-top: 1rem;
         margin-bottom: 1.5rem;
+        padding: 0 10px;
+        line-height: 1.6;
+    }
+
+    .hero-cta-center {
+        margin-top: 20px;
+    }
+
+    .price-marquee {
+        margin-top: 25px;
+        font-size: 11px;
+    }
+
+    .price-marquee-content {
+        gap: 35px;
+        padding-right: 35px;
     }
 
 
@@ -1667,20 +1703,51 @@ a {
 }
 
 @media (max-width: 480px) {
+    .hero {
+        padding: 90px 0 50px 0;
+    }
+
+    .hero-logo {
+        width: 80%;
+        max-width: 280px;
+    }
+
     .hero-title {
-        font-size: 2rem;
-        margin-bottom: 1rem;
+        font-size: clamp(1.5rem, 7vw, 2rem);
+        margin-bottom: 0.5rem;
+        padding: 0 8px;
     }
 
     .hero-title::after {
-        bottom: -10px;
+        bottom: -8px;
         width: 25px;
     }
 
     .hero-subtitle {
-        font-size: 0.95rem;
-        margin-top: 1.5rem;
-        margin-bottom: 1.75rem;
+        font-size: clamp(0.85rem, 3.5vw, 0.95rem);
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+        padding: 0 15px;
+    }
+
+    .hero-cta-center {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .hero-cta-center .btn {
+        width: 100%;
+        padding: 0.9rem 1.5rem;
+    }
+
+    .price-marquee {
+        margin-top: 20px;
+        font-size: 10px;
+    }
+
+    .price-marquee-content {
+        gap: 25px;
+        padding-right: 25px;
     }
 
     .btn {
