@@ -55,32 +55,6 @@ function secureLog(level, ...args) {
     }
 }
 
-// ========== TELEGRAM INTEGRATION ==========
-// NOTE: Token and chat ID are handled by a serverless function.
-function sendToTelegram(data) {
-    // Sanitize data before sending
-    const sanitizedData = {
-        businessType: String(data.businessType || 'Unspecified').slice(0, 100),
-        timeline: String(data.timeline || 'Unspecified').slice(0, 100),
-        contact: String(data.contact || '').slice(0, 200)
-    };
-    
-    fetch('/api/telegram', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(sanitizedData)
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Request failed');
-            }
-            return response.json();
-        })
-        .then(payload => secureLog('log', 'Telegram response:', payload.success ? 'Success' : 'Check server logs'))
-        .catch(error => secureLog('error', 'Telegram request failed'));
-}
 
 // ========== LANGUAGE SWITCHING ==========
 const translations = {
@@ -209,7 +183,6 @@ const translations = {
         'modal.desc': 'Connect directly with our engineering team to discuss your infrastructure requirements.',
         'modal.whatsapp': 'WhatsApp',
         'modal.viber': 'Viber',
-        'modal.telegram': 'Telegram',
         'modal.call': 'Direct Call',
         'growth.hero.eyebrow': 'PERFORMANCE MARKETING',
         'growth.hero.title.line1': 'Marketing is not a campaign.',
@@ -362,7 +335,6 @@ const translations = {
         'modal.desc': 'Поврзи се директно со нашиот инженерски тим за да ги разгледаме твоите инфраструктурни потреби.',
         'modal.whatsapp': 'WhatsApp',
         'modal.viber': 'Viber',
-        'modal.telegram': 'Telegram',
         'modal.call': 'Директен повик',
         'growth.hero.eyebrow': 'ПЕРФОРМАНС МАРКЕТИНГ',
         'growth.hero.title.line1': 'Маркетинг не е кампања.',
@@ -770,11 +742,7 @@ if (chatToggle && chatPanel && chatBody && chatClose) {
         };
 
         secureLog('log', 'Regnum chat lead submitted');
-        sendToTelegram({
-            businessType: chatState.websiteType || chatState.topic || 'Unspecified',
-            timeline: chatState.timeline || 'Unspecified',
-            contact
-        });
+        // telegram integration removed, form data no longer sent to external service
         chatState.step = 'done';
         renderChat();
     });

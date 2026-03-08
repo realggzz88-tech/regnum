@@ -26,8 +26,6 @@ echo.
 echo Before deploying, ensure you have:
 echo.
 echo 1. Set environment variables in Vercel Dashboard:
-echo    - TELEGRAM_BOT_TOKEN
-echo    - TELEGRAM_CHAT_ID
 echo.
 echo 2. Connected Vercel to your Git repository (optional)
 echo.

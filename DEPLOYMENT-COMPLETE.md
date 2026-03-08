@@ -13,7 +13,7 @@
 **After:** Complete production-ready configuration with:
 
 - Clean URL rewriting (no .html extensions needed)
-- API route rewriting for `/api/telegram`
+- Telegram API route removed (no longer used)
 - 15 page redirects configured
 - Security headers (XSS protection, CORS, etc.)
 - Cache headers for static assets
@@ -52,7 +52,7 @@ Three comprehensive guides added:
 - ✅ 19 HTML files (all pages present)
 - ✅ 2 CSS stylesheets (style.css, services.css)
 - ✅ 1 main JavaScript file (script.js)
-- ✅ 1 API route (api/telegram.js)
+- ✅ No API routes (static-only site)
 - ✅ 25 project images
 - ✅ SEO configuration (sitemap.xml, robots.txt)
 - ✅ Security headers configured
@@ -69,12 +69,9 @@ Go to **Vercel Dashboard** → Your Project → **Settings** → **Environment V
 Add these two variables:
 
 ```
-TELEGRAM_BOT_TOKEN=<your-bot-token>
-TELEGRAM_CHAT_ID=<your-chat-id>
 ```
 
 **How to get these values:**
-- Create Telegram bot: Chat with @BotFather on Telegram
 - Get your chat ID from the bot response
 - Add both to Vercel environment variables
 
@@ -109,7 +106,7 @@ After deployment completes, test these URLs:
 Homepage:           https://your-domain.com
 Service Page:       https://your-domain.com/websites
 CRM Systems:        https://your-domain.com/crm-systems
-API Endpoint:       https://your-domain.com/api/telegram
+API Endpoint:       (none - no backend functions)
 Invalid Route:      https://your-domain.com/invalid (should show 404)
 ```
 
@@ -128,8 +125,6 @@ Replace these files with production-quality images:
 
 ## 📊 DEPLOYMENT CHECKLIST
 
-- [ ] Set TELEGRAM_BOT_TOKEN in Vercel
-- [ ] Set TELEGRAM_CHAT_ID in Vercel
 - [ ] Deploy to Vercel (using CLI, Git, or Dashboard)
 - [ ] Wait 2-5 minutes for deployment
 - [ ] Test homepage loads
@@ -148,7 +143,7 @@ Replace these files with production-quality images:
 
 ✅ **All Pages** - 19 HTML pages with proper routing  
 ✅ **Styling** - CSS files load correctly  
-✅ **API** - Telegram contact form integration  
+✅ **API** - none (static site)
 ✅ **404 Handling** - Custom error page  
 ✅ **Security** - Headers added and configured  
 ✅ **Performance** - Caching optimized  
@@ -163,7 +158,7 @@ The 404 error occurred because:
 
 1. **vercel.json was incomplete** - Only had `cleanUrls: true`
 2. **No route redirects configured** - Pages like `/websites` were looking for `/websites.html` directly
-3. **API route not configured** - `/api/telegram` wasn't rewritten to `/api/telegram.js`
+3. **API route not applicable**
 4. **Missing asset files** - Referenced OG images and favicons didn't exist
 5. **No error page configuration** - 404 errors weren't being handled
 
@@ -184,7 +179,6 @@ For detailed information, see:
 ## 💡 QUICK TIPS
 
 - Clean URLs enabled: `/websites` works instead of `/websites.html`
-- API available at: `/api/telegram` (POST only)
 - Rate limiting: 5 requests per minute per IP
 - All files cached for 1 year (for performance)
 - Security headers enabled by default
@@ -195,7 +189,7 @@ For detailed information, see:
 
 1. **Placeholder files exist** - Website deploys without them, but replace with real assets for production
 2. **Images are in public directory** - Currently at `/images/projects/`
-3. **API needs credentials** - Set TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID
+3. **No API credentials needed**
 4. **Static deployment** - No build step needed, pure HTML/CSS/JS
 
 ---

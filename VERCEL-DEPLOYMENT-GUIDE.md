@@ -10,7 +10,6 @@ This document outlines all the steps needed to deploy this website on Vercel suc
 
 ### ✅ vercel.json - CONFIGURED
 - Clean URLs enabled (`/analiza` → `/analiza.html`)
-- API rewrite configured for `/api/telegram`
 - Security headers added
 - Cache headers optimized
 - All route redirects configured
@@ -25,16 +24,9 @@ This document outlines all the steps needed to deploy this website on Vercel suc
 
 Before deploying, configure these in Vercel Dashboard:
 
-### For Telegram Bot Integration:
-```
-TELEGRAM_BOT_TOKEN=<your-bot-token>
-TELEGRAM_CHAT_ID=<your-chat-id>
-```
+### Environment Variables
 
-**How to get these:**
-1. Create Telegram bot via @BotFather
-2. Get your chat ID from the bot
-3. Add to Vercel Project Settings → Environment Variables
+This project currently has no required environment variables. (Previous Telegram integration removed.)
 
 ---
 
@@ -70,7 +62,6 @@ TELEGRAM_CHAT_ID=<your-chat-id>
 - ✅ public/images/projects/ - All project images
 
 ### API:
-- ✅ api/telegram.js - Serverless function for contact form
 
 ### SEO/Meta:
 - ✅ sitemap.xml
@@ -132,7 +123,6 @@ After deployment, verify these work:
 - [ ] https://your-domain.com/automation (automation.html)
 
 ### ✅ Check API Route
-- [ ] https://your-domain.com/api/telegram responds correctly
 
 ### ✅ Check 404 Handling
 - [ ] https://your-domain.com/nonexistent → Shows custom 404 page
@@ -165,7 +155,6 @@ Look for:
 **Solution:** Verify environment variables are set:
 1. Go to Vercel Dashboard
 2. Project Settings → Environment Variables
-3. Ensure `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` are present
 
 ### Issue: CSS/JS not loading
 **Solution:** Files should load via:
@@ -205,7 +194,6 @@ These are configured correctly.
 - ✅ Content-Type enforcement
 - ✅ Rate limiting on API (5 requests/min per IP)
 - ✅ Input sanitization
-- ✅ Telegram API security validation
 
 ---
 
