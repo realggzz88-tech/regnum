@@ -1,11 +1,5 @@
 {
   "cleanUrls": true,
-  "rewrites": [
-    {
-      "source": "/api/telegram",
-      "destination": "/api/telegram.js"
-    }
-  ],
   "redirects": [
     {
       "source": "/analiza",
