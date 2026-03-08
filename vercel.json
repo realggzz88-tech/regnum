@@ -1,0 +1,115 @@
+{
+  "cleanUrls": true,
+  "buildCommand": "",
+  "outputDirectory": ".",
+  "framework": "html",
+  "rewrites": [
+    {
+      "source": "/api/telegram",
+      "destination": "/api/telegram.js"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/analiza",
+      "destination": "/analiza.html"
+    },
+    {
+      "source": "/dizajn",
+      "destination": "/dizajn.html"
+    },
+    {
+      "source": "/izgradba",
+      "destination": "/izgradba.html"
+    },
+    {
+      "source": "/websites",
+      "destination": "/websites.html"
+    },
+    {
+      "source": "/crm-systems",
+      "destination": "/crm-systems.html"
+    },
+    {
+      "source": "/automation",
+      "destination": "/automation.html"
+    },
+    {
+      "source": "/growth",
+      "destination": "/growth.html"
+    },
+    {
+      "source": "/growth-strategy",
+      "destination": "/growth-strategy.html"
+    },
+    {
+      "source": "/ai-integracija",
+      "destination": "/ai-integracija.html"
+    },
+    {
+      "source": "/lead-generation",
+      "destination": "/lead-generation.html"
+    },
+    {
+      "source": "/reporting",
+      "destination": "/reporting.html"
+    },
+    {
+      "source": "/it-consulting-macedonia",
+      "destination": "/it-consulting-macedonia.html"
+    },
+    {
+      "source": "/project-saas-crm",
+      "destination": "/project-saas-crm.html"
+    },
+    {
+      "source": "/project-ecommerce-marketing",
+      "destination": "/project-ecommerce-marketing.html"
+    },
+    {
+      "source": "/project-automation-infrastructure",
+      "destination": "/project-automation-infrastructure.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/public/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(assets|public)/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ]
+}
