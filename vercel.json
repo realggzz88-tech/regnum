@@ -1,8 +1,5 @@
 {
   "cleanUrls": true,
-  "buildCommand": "",
-  "outputDirectory": ".",
-  "framework": "html",
   "rewrites": [
     {
       "source": "/api/telegram",
