@@ -1,5 +1,16 @@
 {
   "cleanUrls": true,
+  "routes": [
+    { "src": "^/$", "dest": "/index.html" },
+    { "src": "^/crm-systems$", "dest": "/crm-systems.html" },
+    { "src": "^/growth$", "dest": "/growth.html" },
+    { "src": "^/automation$", "dest": "/automation.html" },
+    { "src": "^/ai-integracija$", "dest": "/ai-integracija.html" },
+    { "src": "^/lead-generation$", "dest": "/lead-generation.html" },
+    { "src": "^/reporting$", "dest": "/reporting.html" },
+    { "src": "^/it-consulting-macedonia$", "dest": "/it-consulting-macedonia.html" },
+    { "src": "^/(.*)$", "dest": "/$1" }
+  ],
   "headers": [
     {
       "source": "/(assets|public)/(.*)",
