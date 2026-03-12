@@ -1,34 +1,47 @@
-"use strict";
 /* ========================================
    REGNUM CONSULTING - TYPESCRIPT
    Smooth Scroll & Fade-In Animations
    ======================================== */
-const IS_PRODUCTION = window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1';
-function escapeHTML(text) {
-    if (typeof text !== 'string')
-        return '';
+
+const IS_PRODUCTION: boolean = window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1';
+
+function escapeHTML(text: string): string {
+    if (typeof text !== 'string') return '';
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
 }
-function createSafeText(text) {
+
+function createSafeText(text: string): Text {
     return document.createTextNode(text || '');
 }
-function isValidContact(contact) {
-    if (!contact || typeof contact !== 'string')
-        return false;
+
+function isValidContact(contact: string): boolean {
+    if (!contact || typeof contact !== 'string') return false;
     const trimmed = contact.trim();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneRegex = /^[\d\s\-+()]{6,20}$/;
     return emailRegex.test(trimmed) || phoneRegex.test(trimmed);
 }
-function secureLog(level, ...args) {
-    var _a, _b;
+
+function secureLog(level: 'log' | 'warn' | 'error', ...args: any[]): void {
     if (!IS_PRODUCTION) {
-        (_b = (_a = console)[level]) === null || _b === void 0 ? void 0 : _b.call(_a, ...args);
+        (console as any)[level]?.(...args);
     }
 }
-const translations = {
+
+interface Translations {
+    [key: string]: string;
+}
+
+type LanguageKey = 'en' | 'mk';
+
+interface LanguageMap {
+    en: Translations;
+    mk: Translations;
+}
+
+const translations: LanguageMap = {
     en: {
         'nav.model': 'Model',
         'nav.caseStudies': 'Case Studies',
@@ -88,56 +101,56 @@ const translations = {
         // ... more translations as in JS
     },
     mk: {
-    // existing mk translations omitted for brevity (same as before)
+        // existing mk translations omitted for brevity (same as before)
     }
 };
-const getTranslation = (lang, key) => {
-    var _a, _b;
-    return (_b = (_a = translations[lang]) === null || _a === void 0 ? void 0 : _a[key]) !== null && _b !== void 0 ? _b : key;
+
+const getTranslation = (lang: keyof LanguageMap, key: string): string => {
+    return translations[lang]?.[key] ?? key;
 };
-const setLanguage = (lang) => {
-    const elements = document.querySelectorAll('[data-i18n]');
+
+const setLanguage = (lang: LanguageKey): void => {
+    const elements = document.querySelectorAll<HTMLElement>('[data-i18n]');
     elements.forEach((el) => {
         const key = el.dataset.i18n;
-        if (!key)
-            return;
+        if (!key) return;
         const translation = getTranslation(lang, key);
         if (el.tagName.toLowerCase() === 'input' || el.tagName.toLowerCase() === 'textarea') {
-            el.placeholder = translation;
-        }
-        else {
+            (el as HTMLInputElement).placeholder = translation;
+        } else {
             el.textContent = translation;
         }
     });
 };
-const setActiveLanguageButton = (lang) => {
-    const buttons = document.querySelectorAll('.lang-btn');
+
+const setActiveLanguageButton = (lang: LanguageKey): void => {
+    const buttons = document.querySelectorAll<HTMLButtonElement>('.lang-btn');
     buttons.forEach((btn) => {
         if (btn.dataset.lang === lang) {
             btn.classList.add('active');
-        }
-        else {
+        } else {
             btn.classList.remove('active');
         }
     });
 };
-const setupLanguageSwitcher = () => {
+
+const setupLanguageSwitcher = (): void => {
     const switcher = document.querySelector('.language-switcher');
-    if (!switcher)
-        return;
-    switcher.addEventListener('click', (event) => {
-        const target = event.target;
-        if (!target || !target.classList.contains('lang-btn'))
-            return;
-        const lang = target.dataset.lang;
+    if (!switcher) return;
+    switcher.addEventListener('click', (event: Event) => {
+        const target = event.target as HTMLElement;
+        if (!target || !target.classList.contains('lang-btn')) return;
+        const lang = target.dataset.lang as LanguageKey | undefined;
         if (lang && translations[lang]) {
             setLanguage(lang);
             setActiveLanguageButton(lang);
         }
     });
 };
-const initScrollFade = () => {
-    const fadeItems = document.querySelectorAll('.fade-in');
+
+const initScrollFade = (): void => {
+    const fadeItems = document.querySelectorAll<HTMLElement>('.fade-in');
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
@@ -147,44 +160,49 @@ const initScrollFade = () => {
     }, {
         threshold: 0.1
     });
+
     fadeItems.forEach((item) => observer.observe(item));
 };
-const setupMobileMenu = () => {
-    const menuToggle = document.querySelector('.mobile-menu-toggle');
-    const nav = document.querySelector('.nav-container');
-    if (!menuToggle || !nav)
-        return;
+
+const setupMobileMenu = (): void => {
+    const menuToggle = document.querySelector<HTMLButtonElement>('.mobile-menu-toggle');
+    const nav = document.querySelector<HTMLDivElement>('.nav-container');
+
+    if (!menuToggle || !nav) return;
+
     menuToggle.addEventListener('click', () => {
         nav.classList.toggle('open');
     });
+
     document.addEventListener('click', (event) => {
-        const target = event.target;
+        const target = event.target as Node;
         if (!nav.contains(target) && !menuToggle.contains(target)) {
             nav.classList.remove('open');
         }
     });
-    const dropdownToggles = document.querySelectorAll('.nav-dropdown-toggle');
+
+    const dropdownToggles = document.querySelectorAll<HTMLAnchorElement>('.nav-dropdown-toggle');
     dropdownToggles.forEach((toggle) => {
         toggle.addEventListener('click', (event) => {
             if (window.getComputedStyle(menuToggle).display !== 'none') {
                 event.preventDefault();
                 const parent = toggle.closest('.nav-dropdown');
-                parent === null || parent === void 0 ? void 0 : parent.classList.toggle('dropdown-open');
+                parent?.classList.toggle('dropdown-open');
             }
         });
     });
 };
-const init = () => {
+
+const init = (): void => {
     setLanguage('mk');
     setActiveLanguageButton('mk');
     setupLanguageSwitcher();
     setupMobileMenu();
     initScrollFade();
 };
+
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
-}
-else {
+} else {
     init();
 }
-//# sourceMappingURL=script.js.map

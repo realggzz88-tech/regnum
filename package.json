@@ -4,5 +4,13 @@
   "version": "1.0.0",
   "description": "Regnum Consulting - CRM and Business Infrastructure Experts",
   "author": "Regnum Consulting",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "watch": "tsc --project tsconfig.json --watch",
+    "prepare": "npm run build"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
 }
