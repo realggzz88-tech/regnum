@@ -1508,6 +1508,7 @@ a {
         padding: 3rem 0;
         transition: right 0.3s ease;
         border-top: 1px solid #1F2937;
+        overflow-y: auto;
     }
 
     .nav-links.active {
@@ -1529,6 +1530,18 @@ a {
 
     .nav-dropdown:focus-within .nav-dropdown-menu {
         display: block;
+    }
+
+    .nav-dropdown.open .nav-dropdown-menu {
+        display: block;
+    }
+
+    .nav-dropdown.open .nav-arrow {
+        transform: rotate(180deg);
+    }
+
+    .nav-dropdown-menu::before {
+        display: none;
     }
 
     .nav-dropdown-toggle {

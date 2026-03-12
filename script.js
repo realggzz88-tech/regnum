@@ -425,18 +425,41 @@ window.addEventListener('DOMContentLoaded', () => {
 const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 
-mobileMenuToggle.addEventListener('click', () => {
-    mobileMenuToggle.classList.toggle('active');
-    navLinks.classList.toggle('active');
+if (mobileMenuToggle && navLinks) {
+    mobileMenuToggle.addEventListener('click', () => {
+        mobileMenuToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    });
+}
+
+// Close mobile menu when a nav link is clicked
+document.querySelectorAll('.nav-links a').forEach(item => {
+    item.addEventListener('click', (e) => {
+        if (item.closest('.nav-dropdown-toggle')) return;
+        if (mobileMenuToggle) mobileMenuToggle.classList.remove('active');
+        if (navLinks) navLinks.classList.remove('active');
+        document.body.style.overflow = '';
+    });
 });
 
-// Close mobile menu when a link is clicked
-const navItems = document.querySelectorAll('.nav-links a');
-navItems.forEach(item => {
-    item.addEventListener('click', () => {
-        mobileMenuToggle.classList.remove('active');
-        navLinks.classList.remove('active');
+// Mobile dropdown toggle (touch-friendly)
+document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+    const toggle = dropdown.querySelector('.nav-dropdown-toggle');
+    if (!toggle) return;
+    toggle.addEventListener('click', (e) => {
+        if (window.innerWidth > 768) return;
+        e.preventDefault();
+        e.stopPropagation();
+        dropdown.classList.toggle('open');
     });
+});
+
+document.addEventListener('click', (e) => {
+    if (window.innerWidth > 768) return;
+    if (!e.target.closest('.nav-dropdown')) {
+        document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+    }
 });
 
 // ========== FADE-IN ON SCROLL ANIMATION ==========
