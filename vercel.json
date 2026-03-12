@@ -1,6 +1,10 @@
 {
   "version": 2,
   "cleanUrls": true,
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/(.*)", "destination": "/$1.html" }
+  ],
   "headers": [
     {
       "source": "(.*)\\.(js|css|png|jpg|jpeg|gif|svg|webp|ico)$",
