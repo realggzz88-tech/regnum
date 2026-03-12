@@ -861,3 +861,58 @@ window.addEventListener('resize', () => {
         }
     }, 250);
 });
+
+// ========== MOBILE NAVIGATION TOGGLES ==========
+(function () {
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const body = document.body;
+
+    if (!menuToggle || !navLinks) return;
+
+    const ctaGroup = document.querySelector('.cta-group');
+
+    menuToggle.addEventListener('click', () => {
+        const expanded = navLinks.classList.toggle('open');
+        menuToggle.classList.toggle('open');
+        if (ctaGroup) ctaGroup.classList.toggle('open', expanded);
+        menuToggle.setAttribute('aria-expanded', expanded);
+        body.classList.toggle('menu-open', expanded);
+    });
+
+    document.querySelectorAll('.nav-dropdown-toggle').forEach(toggle => {
+        toggle.addEventListener('click', event => {
+            const isDesktop = window.innerWidth >= 768;
+            if (isDesktop) return; // keep hover behavior on desktop
+
+            event.preventDefault();
+            const parent = toggle.closest('.nav-dropdown');
+
+            if (!parent) return;
+
+            const isOpen = parent.classList.toggle('dropdown-open');
+            document.querySelectorAll('.nav-dropdown.dropdown-open').forEach(other => {
+                if (other !== parent) other.classList.remove('dropdown-open');
+            });
+
+            if (isOpen) {
+                parent.querySelector('.nav-dropdown-menu').style.maxHeight = parent.querySelector('.nav-dropdown-menu').scrollHeight + 'px';
+            } else {
+                parent.querySelector('.nav-dropdown-menu').style.maxHeight = '0';
+            }
+        });
+    });
+
+    document.addEventListener('click', event => {
+        if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
+            navLinks.classList.remove('open');
+            menuToggle.classList.remove('open');
+            body.classList.remove('menu-open');
+            document.querySelectorAll('.nav-dropdown.dropdown-open').forEach(drop => {
+                drop.classList.remove('dropdown-open');
+                const submenu = drop.querySelector('.nav-dropdown-menu');
+                if (submenu) submenu.style.maxHeight = '0';
+            });
+        }
+    });
+})();

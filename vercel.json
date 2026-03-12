@@ -1,33 +1,27 @@
 {
+  "version": 2,
   "cleanUrls": true,
-  "routes": [
-    { "src": "^/$", "dest": "/index.html" },
-    { "src": "^/crm-systems$", "dest": "/crm-systems.html" },
-    { "src": "^/growth$", "dest": "/growth.html" },
-    { "src": "^/automation$", "dest": "/automation.html" },
-    { "src": "^/ai-integracija$", "dest": "/ai-integracija.html" },
-    { "src": "^/lead-generation$", "dest": "/lead-generation.html" },
-    { "src": "^/reporting$", "dest": "/reporting.html" },
-    { "src": "^/it-consulting-macedonia$", "dest": "/it-consulting-macedonia.html" },
-    { "src": "^/(.*)$", "dest": "/$1" }
-  ],
   "headers": [
     {
-      "source": "/(assets|public)/(.*)",
+      "source": "(.*)\\.(js|css|png|jpg|jpeg|gif|svg|webp|ico)$",
       "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
     },
     {
-      "source": "/(.*)",
+      "source": "(.*)\\.html$",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    },
+    {
+      "source": "(.*)",
       "headers": [
         { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "X-XSS-Protection", "value": "1; mode=block" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Referrer-Policy", "value": "same-origin" },
+        { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload" },
+        { "key": "X-XSS-Protection", "value": "1; mode=block" }
       ]
     }
   ]
