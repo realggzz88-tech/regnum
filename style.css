@@ -1,4 +1,4 @@
-/* ========================================
+﻿/* ========================================
    REGNUM CONSULTING - STYLE SHEET
    Dark Luxury Corporate Design System
    ======================================== */
@@ -72,6 +72,8 @@ a {
     min-height: 78vh;
     display: flex;
     align-items: center;
+    justify-content: center;
+    justify-content: center;
     padding: 58px 0 88px 0;
     position: relative;
     overflow: hidden;
@@ -96,6 +98,7 @@ a {
 
 .hero-content {
     max-width: 850px;
+    margin: 0 auto;
     position: relative;
     z-index: 2;
     display: flex;
@@ -306,7 +309,7 @@ a {
 }
 
 .fast-launch-list li::before {
-    content: '•';
+    content: 'â€¢';
     position: absolute;
     left: 0;
     color: #C7E35F;
@@ -862,7 +865,7 @@ a {
 }
 
 .timeline-connector::after {
-    content: '→';
+    content: 'â†’';
     position: absolute;
     right: -4px;
     top: -10px;
@@ -1091,7 +1094,7 @@ a {
 }
 
 .capability-block ul li::before {
-    content: "→";
+    content: "â†’";
     position: absolute;
     left: 0;
     color: #C7E35F;
@@ -1497,7 +1500,9 @@ a {
         top: 80px;
         right: -100%;
         width: 100%;
-        background-color: rgba(20, 24, 29, 0.98);
+        height: calc(100vh - 80px);
+        height: calc(100dvh - 80px);
+                background-color: rgba(20, 24, 29, 0.98);
         flex-direction: column;
         align-items: center;
         padding: 3rem 0;
@@ -2197,7 +2202,7 @@ a {
 }
 
 .service-card-features li::before {
-    content: '•';
+    content: 'â€¢';
     position: absolute;
     left: 0;
     color: #C7E35F;
