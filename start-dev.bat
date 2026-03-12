@@ -1,13 +1,25 @@
 @echo off
 echo ==========================================
-echo  Regnum Consulting - Static Site Preview
+echo  Regnum Consulting - Development Server
 echo ==========================================
 echo.
-if exist index.html (
-    echo Opening index.html in default browser...
-    start "" "index.html"
-) else (
-    echo ERROR: index.html not found in repository root.
-)
 
-echo Done. Open index.html manually if needed.
+REM Set development environment
+set NODE_ENV=development
+
+echo Starting secure development server...
+echo.
+echo Server will be available at:
+echo  - Local:   http://localhost:3000
+echo.
+echo Security features enabled:
+echo  - Rate limiting
+echo  - Security headers
+echo  - Path traversal protection
+echo  - Input validation
+echo.
+echo Press Ctrl+C to stop the server
+echo.
+
+REM Run the secure Node.js server
+node server.js
