@@ -73,7 +73,6 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    justify-content: center;
     padding: 58px 0 88px 0;
     position: relative;
     overflow: hidden;
@@ -117,7 +116,7 @@ a {
 
 .hero-logo {
     max-width: 2600px;
-    width: 130%;
+    width: 100%;
     height: auto;
     filter: drop-shadow(0 10px 30px rgba(199, 227, 95, 0.15));
     transition: all 0.3s ease;
@@ -1571,7 +1570,9 @@ a {
     }
 
     .hero-content {
-        padding: 0 10px;
+        padding: 0 20px;
+        max-width: 100%;
+        overflow: hidden;
     }
 
     .hero-logo-wrapper {
@@ -1587,7 +1588,9 @@ a {
         font-size: clamp(1.75rem, 6vw, 2.5rem);
         margin-bottom: 0.5rem;
         line-height: 1.2;
-        padding: 0 5px;
+        padding: 0 10px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
     .hero-title::after {
