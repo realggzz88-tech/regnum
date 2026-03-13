@@ -238,6 +238,12 @@ const server = http.createServer((req, res) => {
     requestUrl = '/index.html';
   }
   
+  // Clean URLs: if no extension, try appending .html
+  const parsedExt = path.extname(requestUrl.split('?')[0]).toLowerCase();
+  if (!parsedExt && requestUrl !== '/index.html') {
+    requestUrl = requestUrl.split('?')[0] + '.html';
+  }
+  
   // Sanitize and validate path
   const filePath = sanitizePath(requestUrl);
   if (!filePath) {
@@ -260,7 +266,16 @@ const server = http.createServer((req, res) => {
   // Check if file exists first (async)
   fs.stat(filePath, (statErr, stats) => {
     if (statErr || !stats.isFile()) {
-      sendError(res, 404, 'Not Found');
+      // Try serving 404.html for not found pages
+      const notFoundPath = path.join(ROOT_DIR, '404.html');
+      fs.readFile(notFoundPath, (err404, content404) => {
+        if (err404) {
+          sendError(res, 404, 'Not Found');
+          return;
+        }
+        res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
+        res.end(content404);
+      });
       return;
     }
     
