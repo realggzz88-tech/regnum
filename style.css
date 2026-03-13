@@ -492,14 +492,16 @@ a {
 }
 
 .nav-dropdown:hover .nav-dropdown-menu,
-.nav-dropdown:focus-within .nav-dropdown-menu {
+.nav-dropdown:focus-within .nav-dropdown-menu,
+.nav-dropdown.open .nav-dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
 
 .nav-dropdown:hover .nav-arrow,
-.nav-dropdown:focus-within .nav-arrow {
+.nav-dropdown:focus-within .nav-arrow,
+.nav-dropdown.open .nav-arrow {
     transform: rotate(180deg);
     opacity: 1;
 }
