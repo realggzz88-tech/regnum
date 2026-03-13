@@ -458,17 +458,26 @@ document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
         const isOpen = dropdown.classList.contains('open');
         // Close all other dropdowns first
         document.querySelectorAll('.nav-dropdown').forEach(d => {
-            if (d !== dropdown) d.classList.remove('open');
+            if (d !== dropdown) {
+                d.classList.remove('open');
+                const t = d.querySelector('.nav-dropdown-toggle');
+                if (t) t.setAttribute('aria-expanded', 'false');
+            }
         });
         // Toggle clicked dropdown
         dropdown.classList.toggle('open', !isOpen);
+        toggle.setAttribute('aria-expanded', String(!isOpen));
     });
 });
 
 // Close dropdowns when clicking outside
 document.addEventListener('click', (e) => {
     if (!e.target.closest('.nav-dropdown')) {
-        document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+        document.querySelectorAll('.nav-dropdown').forEach(d => {
+            d.classList.remove('open');
+            const t = d.querySelector('.nav-dropdown-toggle');
+            if (t) t.setAttribute('aria-expanded', 'false');
+        });
     }
 });
 
