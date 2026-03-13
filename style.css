@@ -308,7 +308,7 @@ a {
 }
 
 .fast-launch-list li::before {
-    content: 'â€¢';
+    content: '\2022';
     position: absolute;
     left: 0;
     color: #C7E35F;
@@ -864,7 +864,7 @@ a {
 }
 
 .timeline-connector::after {
-    content: 'â†’';
+    content: '\2192';
     position: absolute;
     right: -4px;
     top: -10px;
@@ -1093,7 +1093,7 @@ a {
 }
 
 .capability-block ul li::before {
-    content: "â†’";
+    content: '\2192';
     position: absolute;
     left: 0;
     color: #C7E35F;
@@ -2218,7 +2218,7 @@ a {
 }
 
 .service-card-features li::before {
-    content: 'â€¢';
+    content: '\2022';
     position: absolute;
     left: 0;
     color: #C7E35F;
