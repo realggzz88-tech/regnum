@@ -401,7 +401,17 @@ function setLanguage(lang) {
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (translations[lang][key]) {
-            el.textContent = translations[lang][key];
+            // Preserve child elements (e.g. nav-arrow spans) when updating text
+            const arrow = el.querySelector('.nav-arrow');
+            if (arrow) {
+                // Only update the text node, keep the arrow span
+                el.childNodes.forEach(node => {
+                    if (node.nodeType === Node.TEXT_NODE) node.remove();
+                });
+                el.insertBefore(document.createTextNode(translations[lang][key] + ' '), arrow);
+            } else {
+                el.textContent = translations[lang][key];
+            }
         }
     });
     document.querySelectorAll('.lang-btn').forEach(btn => {
