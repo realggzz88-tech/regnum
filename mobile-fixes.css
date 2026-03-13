@@ -1,10 +1,55 @@
 ﻿/* ========================================
    MOBILE RESPONSIVE FIXES
-   Only affects screens <= 768px
+   Breakpoints: 1024px / 768px / 480px
+   Desktop layout is never modified.
    ======================================== */
 
-/* ===== GLOBAL MOBILE OVERRIDES ===== */
+/* ===== GLOBAL — prevent horizontal scroll ===== */
+html, body {
+    overflow-x: hidden;
+}
+
+/* ========================================
+   TABLET — max-width: 1024px
+   ======================================== */
+@media (max-width: 1024px) {
+
+    .container {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    /* Hero */
+    .hero {
+        min-height: 70vh;
+        padding: 80px 0 70px;
+    }
+
+    .hero-logo {
+        max-width: 420px;
+    }
+
+    .hero-title {
+        font-size: 2.4rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.05rem;
+    }
+
+    /* Decorative line — shrink on tablet */
+    .hero::before {
+        height: 200px;
+        opacity: 0.06;
+    }
+}
+
+/* ========================================
+   MOBILE — max-width: 768px
+   ======================================== */
 @media (max-width: 768px) {
+
+    /* --- Global overrides --- */
     html {
         overflow-x: hidden;
     }
@@ -17,9 +62,10 @@
     .container {
         padding-left: 20px;
         padding-right: 20px;
+        max-width: 100%;
     }
 
-    /* ===== NAVBAR MOBILE ===== */
+    /* --- NAVBAR --- */
     .navbar {
         padding: 12px 0;
     }
@@ -60,11 +106,10 @@
     .nav-links a {
         font-size: 1.1rem;
         padding: 14px 20px;
-        display: block;
-        min-height: 48px;
         display: flex;
         align-items: center;
         justify-content: center;
+        min-height: 48px;
     }
 
     .nav-cta {
@@ -149,41 +194,97 @@
         pointer-events: auto;
     }
 
-    /* ===== HERO SECTION ===== */
+    /* --- HERO SECTION — stacked mobile layout --- */
     .hero {
-        min-height: 100dvh;
+        min-height: auto;
         padding: 100px 0 60px;
         display: flex;
         align-items: center;
+        justify-content: center;
+    }
+
+    /* Decorative left line — push behind content, shrink */
+    .hero::before {
+        height: 150px;
+        opacity: 0.04;
+        z-index: 0;
     }
 
     .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         text-align: center;
+        gap: 16px;
+        max-width: 100%;
+        padding: 0 20px;
+        position: relative;
+        z-index: 2;
     }
 
+    /* 1. Logo at top */
     .hero-logo-wrapper {
-        margin-bottom: 24px;
+        margin-bottom: 8px;
+        order: 0;
     }
 
     .hero-logo {
-        max-width: 180px;
+        max-width: 220px;
+        width: 70%;
         height: auto;
     }
 
+    /* 2. Headline */
     .hero-title {
-        font-size: clamp(1.8rem, 8vw, 2.4rem);
-        line-height: 1.15;
-        margin-bottom: 16px;
+        font-size: clamp(1.75rem, 7vw, 2.4rem);
+        line-height: 1.18;
+        margin-bottom: 0;
+        margin-top: 0;
+        max-width: 100%;
+        padding: 0;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        order: 1;
     }
 
+    .hero-title::after {
+        bottom: -10px;
+        width: 30px;
+    }
+
+    /* 3. Description paragraph */
     .hero-subtitle {
-        font-size: clamp(0.95rem, 4vw, 1.1rem);
-        line-height: 1.6;
-        margin-bottom: 24px;
+        font-size: clamp(0.95rem, 3.8vw, 1.1rem);
+        line-height: 1.65;
+        margin-top: 8px;
+        margin-bottom: 0;
+        max-width: 100%;
+        padding: 0;
+        order: 2;
     }
 
+    /* 4. Price marquee (acts as feature/price display) */
+    .price-marquee {
+        margin-top: 0;
+        overflow: hidden;
+        width: 100%;
+        order: 3;
+    }
+
+    .price-marquee-content span {
+        font-size: 0.75rem;
+        padding: 0 16px;
+    }
+
+    /* 5. CTA button */
     .hero-cta-center {
-        margin-bottom: 20px;
+        margin-top: 8px;
+        margin-bottom: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        order: 4;
     }
 
     .hero-cta-center .btn {
@@ -192,20 +293,12 @@
         padding: 16px 24px;
         font-size: 0.95rem;
         min-height: 52px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
     }
 
-    /* Price marquee */
-    .price-marquee {
-        margin-top: 20px;
-        overflow: hidden;
-    }
-
-    .price-marquee-content span {
-        font-size: 0.75rem;
-        padding: 0 16px;
-    }
-
-    /* ===== FAST LAUNCH SECTION ===== */
+    /* --- FAST LAUNCH SECTION --- */
     .fast-launch-section {
         padding: 80px 0;
     }
@@ -218,6 +311,24 @@
         padding: 0;
     }
 
+    .fast-launch-desc {
+        font-size: 1rem;
+        padding: 0;
+    }
+
+    /* Bullet list — readable and centered block */
+    .fast-launch-list {
+        max-width: 100%;
+        padding: 0 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .fast-launch-list li {
+        font-size: 0.93rem;
+        line-height: 1.75;
+    }
+
     .fast-launch-pricing {
         text-align: center;
     }
@@ -226,9 +337,24 @@
         font-size: 2rem;
     }
 
-    /* ===== BUILT TO SCALE ===== */
+    .fast-launch-section .btn {
+        width: 100%;
+        max-width: 300px;
+        min-height: 52px;
+        padding: 16px 24px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* --- BUILT TO SCALE --- */
     .built-scale-section {
         padding: 80px 0;
+    }
+
+    .built-scale-desc {
+        font-size: 1rem;
+        padding: 0 10px;
     }
 
     .built-scale-flow {
@@ -247,7 +373,7 @@
         text-align: center;
     }
 
-    /* ===== PROFIT PIPELINE ===== */
+    /* --- PROFIT PIPELINE --- */
     .profit-pipeline-section {
         padding: 80px 0;
     }
@@ -260,6 +386,7 @@
 
     .pipeline-arrow {
         transform: rotate(0deg);
+        height: 35px;
     }
 
     .pipeline-arrow svg {
@@ -277,9 +404,15 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        font-size: 0.95rem;
     }
 
-    /* ===== TIMELINE SECTION ===== */
+    .pipeline-footer {
+        font-size: 0.9rem;
+        padding: 0 10px;
+    }
+
+    /* --- TIMELINE --- */
     .timeline-section {
         padding: 80px 0;
     }
@@ -299,7 +432,7 @@
         padding: 24px 20px;
     }
 
-    /* ===== SERVICES SLIDER ===== */
+    /* --- SERVICES SLIDER --- */
     .premium-services-section {
         padding: 80px 0;
     }
@@ -329,7 +462,7 @@
         justify-content: center;
     }
 
-    /* ===== PROJECTS / PORTFOLIO ===== */
+    /* --- PROJECTS / PORTFOLIO --- */
     .projects-container {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -361,7 +494,7 @@
         justify-content: center;
     }
 
-    /* ===== FINAL CTA ===== */
+    /* --- FINAL CTA --- */
     .final-cta-section {
         padding: 80px 0;
     }
@@ -370,24 +503,59 @@
         font-size: clamp(1.6rem, 7vw, 2rem);
     }
 
+    .cta-subline {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
     .cta-content .btn {
         width: 100%;
         max-width: 300px;
         padding: 16px 24px;
         min-height: 52px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
     }
 
-    /* ===== ABOUT SECTION ===== */
+    /* --- ABOUT SECTION --- */
     .about-section {
         padding: 80px 0;
+    }
+
+    .about-section::before {
+        font-size: 22vw;
     }
 
     .about-text {
         font-size: 0.95rem;
         line-height: 1.75;
+        padding: 0 5px;
     }
 
-    /* ===== CONSULTATION MODAL ===== */
+    .about-content {
+        padding: 1rem;
+    }
+
+    /* --- TRANSFORMATION --- */
+    .transformation-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .transform-card {
+        padding: 2rem;
+    }
+
+    .transform-headline {
+        font-size: 1.25rem;
+    }
+
+    .transform-text {
+        font-size: 0.9rem;
+    }
+
+    /* --- CONSULTATION MODAL --- */
     .contact-modal {
         width: 95%;
         max-width: 360px;
@@ -405,7 +573,7 @@
         font-size: 1rem;
     }
 
-    /* ===== CHAT WIDGET ===== */
+    /* --- CHAT WIDGET --- */
     .chat-toggle {
         width: 52px;
         height: 52px;
@@ -435,7 +603,7 @@
         padding: 12px 20px;
     }
 
-    /* ===== FOOTER ===== */
+    /* --- FOOTER --- */
     .footer {
         padding: 40px 0;
         text-align: center;
@@ -446,37 +614,254 @@
         line-height: 1.6;
     }
 
-    /* ===== SECTION TITLES GLOBAL ===== */
+    /* --- SECTION TITLES GLOBAL --- */
     .section-title {
         font-size: clamp(1.6rem, 7vw, 2.2rem);
         line-height: 1.2;
+        padding: 0 10px;
     }
 
     .section-subtitle {
         font-size: clamp(0.9rem, 3.5vw, 1rem);
+        padding: 0 10px;
+    }
+
+    /* --- GLOBAL BUTTON TOUCH TARGETS --- */
+    .btn {
+        min-height: 48px;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    /* --- IMAGES — prevent overflow --- */
+    img {
+        max-width: 100%;
+        height: auto;
     }
 }
 
-/* ===== EXTRA SMALL SCREENS ===== */
-@media (max-width: 380px) {
+/* ========================================
+   SMALL MOBILE — max-width: 480px
+   ======================================== */
+@media (max-width: 480px) {
+
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    /* Hero — tighter layout */
+    .hero {
+        padding: 90px 0 50px;
+    }
+
+    /* Hide decorative shapes on very small screens */
+    .hero::before {
+        display: none;
+    }
+
+    .hero-content {
+        gap: 14px;
+        padding: 0 6px;
+    }
+
+    .hero-logo {
+        max-width: 180px;
+        width: 65%;
+    }
+
     .hero-title {
-        font-size: 1.6rem;
+        font-size: clamp(1.5rem, 7vw, 1.9rem);
+        padding: 0;
+    }
+
+    .hero-title::after {
+        bottom: -8px;
+        width: 25px;
     }
 
     .hero-subtitle {
+        font-size: clamp(0.88rem, 3.5vw, 0.95rem);
+        line-height: 1.6;
+    }
+
+    .hero-cta-center {
+        padding: 0 10px;
+    }
+
+    .hero-cta-center .btn {
+        width: 100%;
+        max-width: 100%;
+        padding: 14px 20px;
         font-size: 0.9rem;
     }
 
+    .price-marquee {
+        font-size: 10px;
+    }
+
+    .price-marquee-content {
+        gap: 20px;
+        padding-right: 20px;
+    }
+
+    .price-marquee-content span {
+        font-size: 0.68rem;
+        padding: 0 10px;
+    }
+
+    /* Fast launch */
+    .fast-launch-section {
+        padding: 60px 0;
+    }
+
+    .fast-launch-desc {
+        font-size: 0.93rem;
+    }
+
+    .fast-launch-list li {
+        font-size: 0.88rem;
+    }
+
+    .fast-launch-price {
+        font-size: 1.75rem;
+    }
+
+    /* Built to scale */
+    .built-scale-section {
+        padding: 60px 0;
+    }
+
+    .built-scale-desc {
+        font-size: 0.93rem;
+    }
+
+    /* Pipeline */
+    .profit-pipeline-section {
+        padding: 60px 0;
+    }
+
+    .pipeline-step,
+    .pipeline-final {
+        max-width: 100%;
+        font-size: 0.88rem;
+        padding: 14px 16px;
+    }
+
+    /* Timeline */
+    .timeline-section {
+        padding: 60px 0;
+    }
+
+    /* Services slider */
     .service-card {
         min-width: 90vw;
     }
 
+    .service-card-title {
+        font-size: 1.15rem;
+    }
+
+    .price-amount {
+        font-size: 1.4rem;
+    }
+
+    /* Section titles */
+    .section-title {
+        font-size: clamp(1.4rem, 6.5vw, 1.8rem);
+    }
+
+    /* CTA */
+    .cta-title {
+        font-size: 1.6rem;
+    }
+
+    .cta-subline {
+        font-size: 0.93rem;
+    }
+
+    .cta-content .btn {
+        max-width: 100%;
+    }
+
+    /* About */
+    .about-section {
+        padding: 60px 0;
+    }
+
+    .about-section .section-title {
+        font-size: 1.6rem;
+    }
+
+    .about-text {
+        font-size: 0.93rem;
+    }
+
+    .about-content::before {
+        width: 50px;
+        margin-bottom: 20px;
+    }
+
+    /* Modal */
     .contact-modal {
         padding: 24px 16px;
+        max-width: 95%;
+    }
+
+    .contact-modal h2 {
+        font-size: 20px;
+    }
+
+    /* Transformation */
+    .transform-card {
+        padding: 1.5rem;
+    }
+
+    /* Final CTA section */
+    .final-cta-section {
+        padding: 60px 0;
+    }
+
+    .final-cta-section::before {
+        opacity: 0.15;
+    }
+
+    /* Case studies */
+    .case-card {
+        padding: 1.5rem;
+    }
+
+    .capability-block {
+        padding: 1.5rem;
+    }
+
+    .capability-block h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* ========================================
+   EXTRA SMALL — max-width: 380px
+   ======================================== */
+@media (max-width: 380px) {
+    .hero-title {
+        font-size: 1.45rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .hero-logo {
+        max-width: 160px;
+    }
+
+    .service-card {
+        min-width: 92vw;
     }
 
     .price-marquee-content span {
-        font-size: 0.65rem;
-        padding: 0 12px;
+        font-size: 0.6rem;
+        padding: 0 8px;
     }
 }
