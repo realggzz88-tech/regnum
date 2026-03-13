@@ -515,6 +515,9 @@ fadeElements.forEach(element => {
 // Note: CSS scroll-behavior: smooth handles this, but this provides fallback
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+        // Skip dropdown toggles — they only control menus, not scroll
+        if (this.classList.contains('nav-dropdown-toggle')) return;
+
         const href = this.getAttribute('href');
         
         // Skip if it's just "#", email link, or consultation button
