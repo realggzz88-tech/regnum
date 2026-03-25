@@ -13,7 +13,6 @@
 **After:** Complete production-ready configuration with:
 
 - Clean URL rewriting (no .html extensions needed)
-- Telegram API route removed (no longer used)
 - 15 page redirects configured
 - Security headers (XSS protection, CORS, etc.)
 - Cache headers for static assets
@@ -72,8 +71,7 @@ Add these two variables:
 ```
 
 **How to get these values:**
-- Get your chat ID from the bot response
-- Add both to Vercel environment variables
+- Add environment variables as needed
 
 ---
 

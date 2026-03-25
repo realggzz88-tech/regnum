@@ -53,7 +53,7 @@ User-controlled data was directly inserted into DOM via innerHTML.
 
 ---
 
-### 3. Input Injection (api/telegram.js)
+### 3. Input Injection (Contact Form)
 **Severity:** HIGH  
 **Status:** ✅ FIXED
 
@@ -119,7 +119,6 @@ User input directly interpolated into messages without sanitization.
 - Created `secureLog()` function that only logs in development
 - Removed all `console.log()` calls from production code
 - Error responses don't expose stack traces in production
-- API responses don't expose Telegram API details
 
 ---
 
@@ -134,15 +133,6 @@ User input directly interpolated into messages without sanitization.
 - ✅ MIME type validation
 - ✅ Graceful shutdown handlers
 - ✅ Error handling without information leakage
-
-### API Security (api/telegram.js)
-- ✅ Strict mode enabled
-- ✅ Method validation (only POST allowed)
-- ✅ CSRF protection via origin validation
-- ✅ Request timeout (10 seconds)
-- ✅ Input validation with whitelist approach
-- ✅ Telegram token format validation
-- ✅ No sensitive data in responses
 
 ### Frontend Security (script.js)
 - ✅ Strict mode enabled
@@ -163,7 +153,7 @@ User input directly interpolated into messages without sanitization.
 
 ```json
 {
-  "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.telegram.org; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests",
+  "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests",
   "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
   "X-Frame-Options": "DENY",
   "X-Content-Type-Options": "nosniff",
@@ -179,7 +169,6 @@ User input directly interpolated into messages without sanitization.
 | File | Changes |
 |------|---------|
 | `server.js` | Complete rewrite with security hardening |
-| `api/telegram.js` | Input validation, rate limiting, CORS |
 | `script.js` | XSS prevention, secure logging |
 | `assets/js/project-sliders.js` | Removed debug logs, added strict mode |
 | `vercel.json` | Comprehensive security headers |
@@ -201,8 +190,6 @@ User input directly interpolated into messages without sanitization.
 
 Before deploying to production:
 
-- [ ] Set `TELEGRAM_BOT_TOKEN` in Vercel environment variables
-- [ ] Set `TELEGRAM_CHAT_ID` in Vercel environment variables
 - [ ] Verify domain is configured for HSTS preload
 - [ ] Run `npm audit` to check for vulnerable dependencies
 - [ ] Test rate limiting is working

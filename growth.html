@@ -34,25 +34,25 @@
             <a href="index" class="logo">REGNUM</a>
             <ul class="nav-links">
                 <li class="nav-dropdown">
-                    <a href="#" class="nav-dropdown-toggle" aria-expanded="false">Модел <span class="nav-arrow">▾</span></a>
+                    <a href="#" class="nav-dropdown-toggle" aria-expanded="false" data-i18n="nav.model">Модел <span class="nav-arrow">▾</span></a>
                     <ul class="nav-dropdown-menu" aria-label="Модел">
-                        <li><a href="analiza">АНАЛИЗА</a></li>
-                        <li><a href="dizajn">ДИЗАЈН</a></li>
+                        <li><a href="analiza" data-i18n="nav.analiza">АНАЛИЗА</a></li>
+                        <li><a href="dizajn" data-i18n="nav.dizajn">ДИЗАЈН</a></li>
                     </ul>
                 </li>
                 <li class="nav-dropdown">
-                    <a href="#" class="nav-dropdown-toggle" aria-expanded="false">Услуги <span class="nav-arrow">▾</span></a>
+                    <a href="#" class="nav-dropdown-toggle" aria-expanded="false" data-i18n="nav.services">Услуги <span class="nav-arrow">▾</span></a>
                     <ul class="nav-dropdown-menu" aria-label="Услуги">
-                        <li><a href="websites">ВЕБ-СТРАНИ</a></li>
-                        <li><a href="crm-systems">CRM СИСТЕМИ</a></li>
-                        <li><a href="automation">АВТОМАТИЗАЦИЈА</a></li>
-                        <li><a href="growth">МАРКЕТИНГ И ПЕРФОРМАНСИ</a></li>
-                        <li><a href="ai-integracija">AI ИНТЕГРАЦИЈА</a></li>
+                        <li><a href="websites" data-i18n="nav.websites">ВЕБ-СТРАНИ</a></li>
+                        <li><a href="crm-systems" data-i18n="nav.crm">CRM СИСТЕМИ</a></li>
+                        <li><a href="automation" data-i18n="nav.automation">АВТОМАТИЗАЦИЈА</a></li>
+                        <li><a href="growth" data-i18n="nav.growth">МАРКЕТИНГ И ПЕРФОРМАНСИ</a></li>
+                        <li><a href="ai-integracija" data-i18n="nav.ai">AI ИНТЕГРАЦИЈА</a></li>
                     </ul>
                 </li>
-                <li><a href="index#kontakt" class="nav-cta consultBtn">Закажи консултација</a></li>
+                <li><a href="#" class="nav-cta consultBtn open-contact-modal" data-i18n="nav.bookConsultation">Закажи консултација</a></li>
             </ul>
-            <a href="index#vizija" class="nav-about-link">За нас</a>
+            <a href="index#vizija" class="nav-about-link" data-i18n="nav.about">За нас</a>
             <div class="language-switcher">
                 <button class="lang-btn" data-lang="en">EN</button>
                 <button class="lang-btn active" data-lang="mk">МК</button>
@@ -79,8 +79,7 @@
                     <p class="growth-subtitle growth-anim growth-delay-3" data-i18n="growth.hero.subtitle">Дизајнираме и имплементираме performance маркетинг инфраструктура што генерира предвидливи лидови, конверзии и мерлив ROI.</p>
 
                     <div class="growth-cta-row growth-anim growth-delay-4">
-                        <a href="#" class="btn btn-primary consultBtn growth-cta-primary" data-i18n="growth.hero.primary">Започни перформанс стратегија</a>
-                        <a href="index#case-studies" class="btn btn-secondary growth-cta-secondary" data-i18n="growth.hero.secondary">Види како работи системот</a>
+                        <a href="#" class="btn btn-primary consultBtn growth-cta-primary open-contact-modal" data-i18n="growth.hero.primary">Започни перформанс стратегија</a>
                     </div>
 
                     <div class="growth-credibility growth-anim growth-delay-5">
@@ -166,46 +165,46 @@
     <section class="service-deliver growth-deliver">
         <div class="container">
             <div class="growth-deliver-header fade-in">
-                <p class="growth-deliver-eyebrow">ИЗВЕДБЕНИ МОДУЛИ</p>
-                <h2 class="growth-deliver-title">Што реално испорачуваме</h2>
-                <p class="growth-deliver-subtext">Секој модул е дел од интегриран performance маркетинг систем.<br>Секој канал, буџет и метрика работи синхронизирано.</p>
+                <p class="growth-deliver-eyebrow" data-i18n="growth.deliver.eyebrow">ИЗВЕДБЕНИ МОДУЛИ</p>
+                <h2 class="growth-deliver-title" data-i18n="growth.deliver.title">Што реално испорачуваме</h2>
+                <p class="growth-deliver-subtext" data-i18n-html="growth.deliver.subtext">Секој модул е дел од интегриран performance маркетинг систем.<br>Секој канал, буџет и метрика работи синхронизирано.</p>
             </div>
 
             <div class="growth-module-grid">
                 <article class="growth-module-card fade-in">
                     <span class="growth-module-number">[01]</span>
-                    <h3>Performance аудит</h3>
-                    <p>Длабинска анализа на постоечки канали,<br>ad accounts и funnel структура.<br>Идентификација на CPA, ROAS и conversion gaps.</p>
+                    <h3 data-i18n="growth.m1.title">Performance аудит</h3>
+                    <p data-i18n-html="growth.m1.desc">Длабинска анализа на постоечки канали,<br>ad accounts и funnel структура.<br>Идентификација на CPA, ROAS и conversion gaps.</p>
                 </article>
 
                 <article class="growth-module-card fade-in">
                     <span class="growth-module-number">[02]</span>
-                    <h3>Paid media архитектура</h3>
-                    <p>Структурирање на Meta, Google и други платформи<br>со јасна scaling логика, контрола на буџет<br>и audience segmentation.</p>
+                    <h3 data-i18n="growth.m2.title">Paid media архитектура</h3>
+                    <p data-i18n-html="growth.m2.desc">Структурирање на Meta, Google и други платформи<br>со јасна scaling логика, контрола на буџет<br>и audience segmentation.</p>
                 </article>
 
                 <article class="growth-module-card fade-in">
                     <span class="growth-module-number">[03]</span>
-                    <h3>Funnel оптимизација</h3>
-                    <p>Оптимизација на landing pages, conversion flow<br>и структурирано A/B тестирање<br>за зголемување на CR и LTV.</p>
+                    <h3 data-i18n="growth.m3.title">Funnel оптимизација</h3>
+                    <p data-i18n-html="growth.m3.desc">Оптимизација на landing pages, conversion flow<br>и структурирано A/B тестирање<br>за зголемување на CR и LTV.</p>
                 </article>
 
                 <article class="growth-module-card fade-in">
                     <span class="growth-module-number">[04]</span>
-                    <h3>Tracking инфраструктура</h3>
-                    <p>Имплементација на pixel, server-side tracking,<br>event mapping и чиста attribution логика.</p>
+                    <h3 data-i18n="growth.m4.title">Tracking инфраструктура</h3>
+                    <p data-i18n-html="growth.m4.desc">Имплементација на pixel, server-side tracking,<br>event mapping и чиста attribution логика.</p>
                 </article>
 
                 <article class="growth-module-card fade-in">
                     <span class="growth-module-number">[05]</span>
-                    <h3>Performance оптимизациски систем</h3>
-                    <p>Континуирана оптимизација, weekly KPI анализа<br>и data-driven буџет одлуки.</p>
+                    <h3 data-i18n="growth.m5.title">Performance оптимизациски систем</h3>
+                    <p data-i18n-html="growth.m5.desc">Континуирана оптимизација, weekly KPI анализа<br>и data-driven буџет одлуки.</p>
                 </article>
 
                 <article class="growth-module-card fade-in">
                     <span class="growth-module-number">[06]</span>
-                    <h3>Automation & scaling систем</h3>
-                    <p>Автоматизација на reporting,<br>rule-based оптимизација и контролирано<br>скалирање на кампањи.</p>
+                    <h3 data-i18n="growth.m6.title">Automation & scaling систем</h3>
+                    <p data-i18n-html="growth.m6.desc">Автоматизација на reporting,<br>rule-based оптимизација и контролирано<br>скалирање на кампањи.</p>
                 </article>
             </div>
         </div>
@@ -214,23 +213,23 @@
     <!-- ========== HOW WE WORK ========== -->
     <section class="service-process">
         <div class="container">
-            <h2 class="section-title">Како го структурираме перформанс маркетингот</h2>
-            <p class="section-subtitle">Јасен процес. Мерливи KPI. Контролирано скалирање.</p>
+            <h2 class="section-title" data-i18n="growth.processTitle">Како го структурираме перформанс маркетингот</h2>
+            <p class="section-subtitle" data-i18n="growth.processSub">Јасен процес. Мерливи KPI. Контролирано скалирање.</p>
             <div class="process-grid">
                 <div class="process-step fade-in">
                     <div class="process-number">1</div>
-                    <h3>Анализа на перформанс</h3>
-                    <p>Длабинска ревизија на ad accounts, канали, funnel структура и идентификација на CPA, ROAS и conversion gaps.</p>
+                    <h3 data-i18n="growth.step1.title">Анализа на перформанс</h3>
+                    <p data-i18n="growth.step1.desc">Длабинска ревизија на ad accounts, канали, funnel структура и идентификација на CPA, ROAS и conversion gaps.</p>
                 </div>
                 <div class="process-step fade-in">
                     <div class="process-number">2</div>
-                    <h3>Структурирање на систем</h3>
-                    <p>Дизајн на paid media архитектура, tracking инфраструктура и оптимизациска логика со јасни KPI модели.</p>
+                    <h3 data-i18n="growth.step2.title">Структурирање на систем</h3>
+                    <p data-i18n="growth.step2.desc">Дизајн на paid media архитектура, tracking инфраструктура и оптимизациска логика со јасни KPI модели.</p>
                 </div>
                 <div class="process-step fade-in">
                     <div class="process-number">3</div>
-                    <h3>Имплементација и оптимизација</h3>
-                    <p>Фазно лансирање и scaling со континуирана data анализа, буџет оптимизација и performance oversight.</p>
+                    <h3 data-i18n="growth.step3.title">Имплементација и оптимизација</h3>
+                    <p data-i18n="growth.step3.desc">Фазно лансирање и scaling со континуирана data анализа, буџет оптимизација и performance oversight.</p>
                 </div>
             </div>
         </div>
@@ -240,32 +239,33 @@
     <section class="service-final-cta">
         <div class="container">
             <div class="final-cta-content fade-in">
-                <h2>Подготвени за следното ниво?</h2>
-                <p>Структурата одлучува колку брзо ќе растеш.</p>
-                <a href="#" class="btn btn-primary btn-large consultBtn">Започни соработка</a>
+                <h2 data-i18n="shared.readyNext">Подготвени за следното ниво?</h2>
+                <p data-i18n="shared.structureDecides">Структурата одлучува колку брзо ќе растеш.</p>
+                <a href="#" class="btn btn-primary btn-large consultBtn open-contact-modal" data-i18n="shared.startCollab">Започни соработка</a>
             </div>
         </div>
     </section>
 
     <!-- ========== CONSULTATION MODAL ========== -->
+
     <div id="consultModal" class="modal">
-        <div class="modal-content">
-            <span class="closeModal">&times;</span>
-            <h2 class="modal-title">Контактирај нè</h2>
-            <p class="modal-desc">Поврзи се директно со нашиот инженерски тим за да ги разгледаме твоите инфраструктурни потреби.</p>
-            <div class="contact-options">
-                <a href="https://wa.me/38978319044" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-                <a href="viber://chat?number=%2B38978319044" target="_blank" rel="noopener noreferrer">Viber</a>
-                <a href="https://t.me/38978319044" target="_blank" rel="noopener noreferrer">Telegram</a>
-                <a href="tel:+38978319044">Директен повик</a>
+        <div class="contact-modal">
+            <button class="modal-close close-modal">×</button>
+            <h2 data-i18n="modal.title">Контактирај нè</h2>
+            <p class="modal-text" data-i18n="modal.desc">Избери начин на комуникација.</p>
+            <div class="contact-list">
+                <a href="https://wa.me/38971238881" target="_blank" rel="noopener noreferrer" class="contact-item" data-i18n="modal.whatsapp">WhatsApp</a>
+                <a href="viber://chat?number=%2B38971238881" target="_blank" rel="noopener noreferrer" class="contact-item" data-i18n="modal.viber">Viber</a>
+                <a href="tel:+38971238881" class="contact-item" data-i18n="modal.call">Директен повик</a>
             </div>
         </div>
     </div>
 
+
     <!-- ========== FOOTER ========== -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Regnum Consulting. <a href="it-consulting-macedonia">ИТ консалтинг Македонија</a></p>
+            <p><span data-i18n="footer.copyright">&copy; 2026 Regnum Consulting.</span> | <a href="it-consulting-macedonia" style="color: #C7E35F; text-decoration: none;" data-i18n="footer.link">ИТ консалтинг Македонија</a></p>
         </div>
     </footer>
 

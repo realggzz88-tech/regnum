@@ -13,5 +13,8 @@
     "start": "NODE_ENV=production node server.js",
     "lint": "echo 'No linter configured'",
     "security-check": "echo 'Run npm audit for security check'"
+  },
+  "dependencies": {
+    "nodemailer": "^8.0.3"
   }
 }

@@ -26,7 +26,7 @@ Before deploying, configure these in Vercel Dashboard:
 
 ### Environment Variables
 
-This project currently has no required environment variables. (Previous Telegram integration removed.)
+This project currently has no required environment variables.
 
 ---
 

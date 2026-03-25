@@ -6,17 +6,37 @@ import { designProjects } from '/data/design-projects.js';
 const IS_PRODUCTION = window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1';
 const debugLog = IS_PRODUCTION ? () => {} : console.log.bind(console);
 
+// Lightbox state
+let allLightboxImages = [];
+let lightboxIndex = 0;
+
 /**
- * Open lightbox with full-size image
+ * Build flat image list from all design project categories
+ */
+function buildImageList() {
+  allLightboxImages = [
+    ...(designProjects.identity || []),
+    ...(designProjects.packaging || []),
+    ...(designProjects.marketing || [])
+  ];
+}
+
+/**
+ * Open lightbox with navigation support
  * @param {string} src - Image source URL
  */
 function openLightbox(src) {
   const modal = document.getElementById('lightbox');
   const modalImg = document.getElementById('lightbox-img');
-  if (modal && modalImg) {
-    modalImg.src = src;
-    modal.classList.add('active');
-  }
+  if (!modal || !modalImg) return;
+
+  // Find index in the flat list
+  const idx = allLightboxImages.findIndex(item => item.src === src);
+  if (idx !== -1) lightboxIndex = idx;
+
+  modalImg.src = src;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
 }
 
 /**
@@ -26,6 +46,19 @@ function closeLightbox() {
   const modal = document.getElementById('lightbox');
   if (modal) {
     modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+/**
+ * Navigate lightbox by offset (-1 = prev, +1 = next)
+ */
+function navigateLightbox(offset) {
+  if (!allLightboxImages.length) return;
+  lightboxIndex = (lightboxIndex + offset + allLightboxImages.length) % allLightboxImages.length;
+  const modalImg = document.getElementById('lightbox-img');
+  if (modalImg) {
+    modalImg.src = allLightboxImages[lightboxIndex].src;
   }
 }
 
@@ -33,11 +66,21 @@ function closeLightbox() {
  * Setup lightbox event listeners (call once)
  */
 function setupLightbox() {
+  buildImageList();
+
   const modal = document.getElementById('lightbox');
   const closeBtn = document.querySelector('.lightbox-close');
+  const prevBtn = document.querySelector('.lightbox-prev');
+  const nextBtn = document.querySelector('.lightbox-next');
 
   if (closeBtn) {
     closeBtn.addEventListener('click', closeLightbox);
+  }
+  if (prevBtn) {
+    prevBtn.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox(-1); });
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox(1); });
   }
 
   if (modal) {
@@ -49,10 +92,19 @@ function setupLightbox() {
   }
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      closeLightbox();
-    }
+    const isActive = modal && modal.classList.contains('active');
+    if (!isActive) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') navigateLightbox(-1);
+    if (e.key === 'ArrowRight') navigateLightbox(1);
   });
+}
+
+/**
+ * Check if current viewport is mobile (matches CSS breakpoint)
+ */
+function isMobile() {
+  return window.matchMedia('(max-width: 768px)').matches;
 }
 
 /**
@@ -100,6 +152,11 @@ function initAutoSlider(containerId, dataArray) {
       openLightbox(item.src);
     });
 
+    // Make the image itself clickable (essential for mobile where preview-btn is hidden)
+    img.style.cursor = 'pointer';
+    img.style.pointerEvents = 'auto';
+    img.addEventListener('click', () => openLightbox(item.src));
+
     slide.appendChild(img);
     slide.appendChild(previewBtn);
     return slide;
@@ -110,6 +167,12 @@ function initAutoSlider(containerId, dataArray) {
     const slide = createSlide(item);
     track.appendChild(slide);
   });
+
+  // On mobile: just render all slides vertically, skip slider behavior
+  if (isMobile()) {
+    container.appendChild(track);
+    return;
+  }
 
   // Clone first slide for infinite loop
   const clonedFirstSlide = createSlide(dataArray[0]);

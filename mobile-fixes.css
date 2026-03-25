@@ -270,6 +270,7 @@ html, body {
         overflow: hidden;
         width: 100%;
         order: 3;
+        pointer-events: none;
     }
 
     .price-marquee-content span {
@@ -285,6 +286,8 @@ html, body {
         display: flex;
         justify-content: center;
         order: 4;
+        position: relative;
+        z-index: 10;
     }
 
     .hero-cta-center .btn {
@@ -574,34 +577,6 @@ html, body {
     }
 
     /* --- CHAT WIDGET --- */
-    .chat-toggle {
-        width: 52px;
-        height: 52px;
-        bottom: 20px;
-        right: 20px;
-    }
-
-    .chat-panel {
-        width: calc(100vw - 24px);
-        right: 12px;
-        bottom: 80px;
-        max-height: 60dvh;
-    }
-
-    .chat-option {
-        min-height: 44px;
-        padding: 12px 16px;
-    }
-
-    .chat-input {
-        min-height: 44px;
-        font-size: 16px; /* Prevents iOS zoom */
-    }
-
-    .chat-submit {
-        min-height: 44px;
-        padding: 12px 20px;
-    }
 
     /* --- FOOTER --- */
     .footer {
@@ -631,6 +606,12 @@ html, body {
         min-height: 48px;
         padding-left: 16px;
         padding-right: 16px;
+    }
+
+    .consultBtn {
+        position: relative;
+        z-index: 10;
+        touch-action: manipulation;
     }
 
     /* --- IMAGES — prevent overflow --- */

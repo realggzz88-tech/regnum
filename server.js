@@ -12,7 +12,7 @@ const PORT = parseInt(process.env.PORT, 10) || 3000;
 const ROOT_DIR = __dirname;
 
 // ========== SECURITY CONSTANTS ==========
-const MAX_REQUEST_SIZE = 1024 * 1024; // 1MB
+const MAX_REQUEST_SIZE = 5 * 1024 * 1024; // 5MB (largest project image ~3MB)
 const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
 const MAX_REQUESTS_PER_WINDOW = 100;
 
@@ -218,6 +218,34 @@ const server = http.createServer((req, res) => {
   
   // Set security headers
   setSecurityHeaders(res);
+  
+  // Handle POST /api/send (local dev email endpoint)
+  if (req.method === 'POST' && req.url === '/api/send') {
+    let body = '';
+    req.on('data', chunk => {
+      body += chunk;
+      if (body.length > 10000) { req.destroy(); return; }
+    });
+    req.on('end', () => {
+      try {
+        const sendHandler = require('./api/send');
+        const parsed = JSON.parse(body);
+        // Mimic Vercel's req.body / res.status().json()
+        req.body = parsed;
+        res.status = (code) => { res.statusCode = code; return res; };
+        res.json = (obj) => {
+          res.setHeader('Content-Type', 'application/json');
+          res.end(JSON.stringify(obj));
+        };
+        sendHandler(req, res);
+      } catch (e) {
+        secureLog('error', 'API error', { error: e.message });
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Server error' }));
+      }
+    });
+    return;
+  }
   
   // Validate request
   const validation = validateRequest(req);
